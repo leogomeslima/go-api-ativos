@@ -37,6 +37,7 @@ type Ativo struct {
 	EstacaoIdentificada    *string     `json:"estacao_identificada"`
 	Coordenadas            Coordenadas `json:"coordenadas"`
 	Georreferenciado       bool        `json:"georreferenciado"`
+	FotoUrl                *string     `json:"foto_url"`
 }
 
 var (
