@@ -32,7 +32,7 @@ O servidor será iniciado na porta `8080`.
 
 **Exemplo com cURL (Windows PowerShell):**
 ```powershell
-Invoke-RestMethod -Uri "http://localhost:8080/ativos" -Method Post -ContentType "application/json" -Body '{"descricao": "SPLIT SPRINGER MIDEA FAB: SPRINGER MIDEA, MOD: 38CCU060535MS/42ZQA60S5, 220V , [IS102]", "numero_ativo": "IS102", "numero_ativo_2": "SIS102", "tag_inventario": "INV-25-102", "estacao": "Sede CCO", "descricao_centro_de_custo": "SERVICOS GERAIS"}'
+Invoke-RestMethod -Uri "http://localhost:8585/ativos" -Method Post -ContentType "application/json" -Body '{"descricao": "SPLIT SPRINGER MIDEA FAB: SPRINGER MIDEA, MOD: 38CCU060535MS/42ZQA60S5, 220V , [IS102]", "numero_ativo": "IS102", "numero_ativo_2": "SIS102", "tag_inventario": "INV-25-102", "estacao": "Sede CCO", "descricao_centro_de_custo": "SERVICOS GERAIS"}'
 ```
 
 ### 2. Listar ativos salvos
@@ -42,5 +42,5 @@ Retorna um array JSON com todos os ativos salvos na memória da API.
 
 **Exemplo com cURL:**
 ```powershell
-Invoke-RestMethod -Uri "http://localhost:8080/ativos" -Method Get
+Invoke-RestMethod -Uri "http://localhost:8585/ativos" -Method Get
 ```
