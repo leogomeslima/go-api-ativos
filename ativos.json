@@ -1,0 +1,23 @@
+[
+  {
+    "id": "atv_is102",
+    "numero_ativo": "IS102",
+    "numero_ativo2": "SIS102",
+    "tag_inventario": "INV-25-102",
+    "descricao": "SPLIT SPRINGER MIDEA  FAB: SPRINGER MIDEA, MOD: 38CCU060535MS/42ZQA60S5, 220V ,  [IS102]",
+    "classe": "IMOBILIZADO",
+    "subclasse": "MOVEIS E UTENSILIOS",
+    "centro_custo": "SPV02052001",
+    "descricao_centro_custo": "SERVICOS GERAIS vcvv bbbbb",
+    "data_colocacao_servico": "2026-06-01",
+    "custo": 0.01,
+    "localizacao_origem": "BR-RJ-Rio de janeiro-SEDE CCO",
+    "estacao_identificada": "Sede CCO",
+    "coordenadas": {
+      "latitude": -22.9040768,
+      "longitude": -43.1969226,
+      "srid": "EPSG:4326"
+    },
+    "georreferenciado": true
+  }
+]
