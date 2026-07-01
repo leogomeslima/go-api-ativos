@@ -138,7 +138,7 @@ func main() {
 
 func ativosHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Access-Control-Allow-Origin", "*")
-	w.Header().Set("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
+	w.Header().Set("Access-Control-Allow-Methods", "GET, POST, OPTIONS, DELETE")
 	w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
 
 	if r.Method == http.MethodOptions {
@@ -193,6 +193,34 @@ func ativosHandler(w http.ResponseWriter, r *http.Request) {
 
 		w.WriteHeader(http.StatusOK)
 		json.NewEncoder(w).Encode(novoAtivo)
+
+	case http.MethodDelete:
+		idParaDeletar := r.URL.Query().Get("id")
+		if idParaDeletar == "" {
+			http.Error(w, "O parâmetro 'id' é obrigatório na URL. Ex: /ativos?id=123", http.StatusBadRequest)
+			return
+		}
+
+		mu.Lock()
+		deletado := false
+		for i, ativoExistente := range ativos {
+			if ativoExistente.ID == idParaDeletar {
+				// Remove o elemento da fatia
+				ativos = append(ativos[:i], ativos[i+1:]...)
+				deletado = true
+				break
+			}
+		}
+
+		if deletado {
+			salvarDados()
+			mu.Unlock()
+			w.WriteHeader(http.StatusOK)
+			w.Write([]byte(`{"mensagem": "Ativo deletado com sucesso"}`))
+		} else {
+			mu.Unlock()
+			http.Error(w, "Ativo não encontrado", http.StatusNotFound)
+		}
 
 	default:
 		http.Error(w, "Método não permitido", http.StatusMethodNotAllowed)
